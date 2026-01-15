@@ -14,6 +14,67 @@ export type Database = {
   }
   public: {
     Tables: {
+      donations: {
+        Row: {
+          confirmed_at: string | null
+          created_at: string
+          donated_at: string
+          id: string
+          legal_confirmation_text: string | null
+          merchant_id: string
+          ong_id: string | null
+          product_id: string
+          quantity: number
+          status: string
+        }
+        Insert: {
+          confirmed_at?: string | null
+          created_at?: string
+          donated_at?: string
+          id?: string
+          legal_confirmation_text?: string | null
+          merchant_id: string
+          ong_id?: string | null
+          product_id: string
+          quantity?: number
+          status?: string
+        }
+        Update: {
+          confirmed_at?: string | null
+          created_at?: string
+          donated_at?: string
+          id?: string
+          legal_confirmation_text?: string | null
+          merchant_id?: string
+          ong_id?: string | null
+          product_id?: string
+          quantity?: number
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "donations_merchant_id_fkey"
+            columns: ["merchant_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "donations_ong_id_fkey"
+            columns: ["ong_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "donations_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       orders: {
         Row: {
           client_id: string
@@ -79,6 +140,9 @@ export type Database = {
           created_at: string
           description: string | null
           expiration_date: string | null
+          food_day_cutoff_time: string | null
+          food_day_enabled: boolean
+          food_type: string | null
           id: string
           image_url: string | null
           is_surprise_bag: boolean
@@ -88,6 +152,7 @@ export type Database = {
           pickup_time: string | null
           promo_price: number
           quantity: number
+          status: Database["public"]["Enums"]["product_status"]
           updated_at: string
         }
         Insert: {
@@ -96,6 +161,9 @@ export type Database = {
           created_at?: string
           description?: string | null
           expiration_date?: string | null
+          food_day_cutoff_time?: string | null
+          food_day_enabled?: boolean
+          food_type?: string | null
           id?: string
           image_url?: string | null
           is_surprise_bag?: boolean
@@ -105,6 +173,7 @@ export type Database = {
           pickup_time?: string | null
           promo_price: number
           quantity?: number
+          status?: Database["public"]["Enums"]["product_status"]
           updated_at?: string
         }
         Update: {
@@ -113,6 +182,9 @@ export type Database = {
           created_at?: string
           description?: string | null
           expiration_date?: string | null
+          food_day_cutoff_time?: string | null
+          food_day_enabled?: boolean
+          food_type?: string | null
           id?: string
           image_url?: string | null
           is_surprise_bag?: boolean
@@ -122,6 +194,7 @@ export type Database = {
           pickup_time?: string | null
           promo_price?: number
           quantity?: number
+          status?: Database["public"]["Enums"]["product_status"]
           updated_at?: string
         }
         Relationships: [
@@ -136,39 +209,48 @@ export type Database = {
       }
       profiles: {
         Row: {
+          accepted_food_types: string[] | null
           address: string | null
           created_at: string
           email: string | null
           id: string
+          institution_name: string | null
           latitude: number | null
           longitude: number | null
           name: string | null
+          operating_hours: string | null
           role: Database["public"]["Enums"]["app_role"]
           store_name: string | null
           updated_at: string
           whatsapp: string | null
         }
         Insert: {
+          accepted_food_types?: string[] | null
           address?: string | null
           created_at?: string
           email?: string | null
           id: string
+          institution_name?: string | null
           latitude?: number | null
           longitude?: number | null
           name?: string | null
+          operating_hours?: string | null
           role?: Database["public"]["Enums"]["app_role"]
           store_name?: string | null
           updated_at?: string
           whatsapp?: string | null
         }
         Update: {
+          accepted_food_types?: string[] | null
           address?: string | null
           created_at?: string
           email?: string | null
           id?: string
+          institution_name?: string | null
           latitude?: number | null
           longitude?: number | null
           name?: string | null
+          operating_hours?: string | null
           role?: Database["public"]["Enums"]["app_role"]
           store_name?: string | null
           updated_at?: string
@@ -181,7 +263,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      check_and_activate_food_day: { Args: never; Returns: undefined }
     }
     Enums: {
       app_role: "merchant" | "client" | "ong"
@@ -193,6 +275,7 @@ export type Database = {
         | "Dairy"
         | "Surprise Bag"
         | "Other"
+      product_status: "available" | "food_day" | "donated"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -330,6 +413,7 @@ export const Constants = {
         "Surprise Bag",
         "Other",
       ],
+      product_status: ["available", "food_day", "donated"],
     },
   },
 } as const

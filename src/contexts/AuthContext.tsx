@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 
-type UserRole = 'merchant' | 'client';
+type UserRole = 'merchant' | 'client' | 'ong';
 
 interface Profile {
   id: string;
@@ -14,6 +14,9 @@ interface Profile {
   address: string | null;
   latitude: number | null;
   longitude: number | null;
+  institution_name: string | null;
+  accepted_food_types: string[] | null;
+  operating_hours: string | null;
 }
 
 interface AuthContextType {

@@ -59,6 +59,7 @@ export default function ClientFeed() {
         )
       `)
       .eq('active', true)
+      .eq('status', 'available')
       .gt('quantity', 0)
       .order('created_at', { ascending: false });
 
