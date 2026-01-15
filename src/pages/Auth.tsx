@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Leaf, Store, ShoppingBag, ArrowRight, Loader2 } from 'lucide-react';
+import { Leaf, Store, ShoppingBag, ArrowRight, Loader2, Heart } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 
-type UserRole = 'merchant' | 'client';
+type UserRole = 'merchant' | 'client' | 'ong';
 type AuthMode = 'login' | 'signup';
 
 const emailSchema = z.string().email('Email inválido');
@@ -132,36 +132,52 @@ export default function Auth() {
         {mode === 'signup' && (
           <div className="mb-6">
             <Label className="text-sm font-medium mb-3 block">Eu sou...</Label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-3 gap-2">
               <button
                 type="button"
                 onClick={() => setRole('merchant')}
-                className={`flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all duration-200 ${
+                className={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all duration-200 ${
                   role === 'merchant'
                     ? 'border-primary bg-primary/5 text-primary'
                     : 'border-border hover:border-primary/30'
                 }`}
               >
-                <Store className="w-8 h-8" />
-                <span className="font-medium text-sm">Comerciante</span>
-                <span className="text-xs text-muted-foreground text-center">
-                  Quero vender excedentes
+                <Store className="w-6 h-6" />
+                <span className="font-medium text-xs">Comerciante</span>
+                <span className="text-[10px] text-muted-foreground text-center leading-tight">
+                  Vender excedentes
                 </span>
               </button>
 
               <button
                 type="button"
                 onClick={() => setRole('client')}
-                className={`flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all duration-200 ${
+                className={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all duration-200 ${
                   role === 'client'
                     ? 'border-primary bg-primary/5 text-primary'
                     : 'border-border hover:border-primary/30'
                 }`}
               >
-                <ShoppingBag className="w-8 h-8" />
-                <span className="font-medium text-sm">Cliente</span>
-                <span className="text-xs text-muted-foreground text-center">
-                  Quero economizar
+                <ShoppingBag className="w-6 h-6" />
+                <span className="font-medium text-xs">Cliente</span>
+                <span className="text-[10px] text-muted-foreground text-center leading-tight">
+                  Economizar
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setRole('ong')}
+                className={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all duration-200 ${
+                  role === 'ong'
+                    ? 'border-secondary bg-secondary/5 text-secondary'
+                    : 'border-border hover:border-secondary/30'
+                }`}
+              >
+                <Heart className="w-6 h-6" />
+                <span className="font-medium text-xs">ONG</span>
+                <span className="text-[10px] text-muted-foreground text-center leading-tight">
+                  Receber doações
                 </span>
               </button>
             </div>

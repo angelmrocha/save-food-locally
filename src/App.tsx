@@ -14,6 +14,8 @@ import SurpriseBags from "./pages/SurpriseBags";
 import Profile from "./pages/Profile";
 import ProductDetail from "./pages/ProductDetail";
 import MerchantDashboard from "./pages/MerchantDashboard";
+import ONGDashboard from "./pages/ONGDashboard";
+import DonationConfirmation from "./pages/DonationConfirmation";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +56,8 @@ function AppRoutes() {
           user ? (
             profile?.role === 'merchant' ? (
               <Navigate to="/merchant" replace />
+            ) : profile?.role === 'ong' ? (
+              <Navigate to="/ong" replace />
             ) : (
               <Navigate to="/feed" replace />
             )
@@ -69,6 +73,8 @@ function AppRoutes() {
       <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
       <Route path="/product/:id" element={<ProtectedRoute><ProductDetail /></ProtectedRoute>} />
       <Route path="/merchant" element={<ProtectedRoute><MerchantDashboard /></ProtectedRoute>} />
+      <Route path="/ong" element={<ProtectedRoute><ONGDashboard /></ProtectedRoute>} />
+      <Route path="/donation/:id" element={<ProtectedRoute><DonationConfirmation /></ProtectedRoute>} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
