@@ -79,3 +79,41 @@ Protótipo funcional sincronizado com o repositório.
 Prints das principais telas do sistema.
 
 Documentação técnica e anexo explicativo sobre o uso de Inteligência Artificial.
+
+Instruções de Execução Local
+
+Este projeto foi desenvolvido utilizando a plataforma Lovable e sincronizado automaticamente com o GitHub. O código disponível neste repositório representa a estrutura do frontend da aplicação.
+
+Pré-requisitos
+
+Antes de iniciar, é necessário ter instalado:
+
+Node.js (versão 18 ou superior)
+
+npm ou yarn
+
+Instalação
+
+Clone o repositório e instale as dependências:
+
+git clone https://github.com/angelmrocha/save-food-locally.git
+cd save-food-locally
+npm install
+
+Execução em Ambiente de Desenvolvimento
+
+Para iniciar a aplicação localmente:
+
+npm run dev
+
+
+Após a execução, a aplicação estará disponível no navegador no endereço indicado no terminal (geralmente http://localhost:5173
+).
+
+Observações
+
+Algumas funcionalidades dependem de configurações de backend e serviços externos (como Supabase), que não estão totalmente expostos neste repositório.
+
+O protótipo funcional completo pode ser visualizado por meio do ambiente publicado pela plataforma Lovable.
+
+Este repositório tem como objetivo principal demonstrar a estrutura técnica, o fluxo da aplicação e o estágio de maturidade do protótipo.
