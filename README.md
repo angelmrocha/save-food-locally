@@ -1,73 +1,81 @@
-# Welcome to your Lovable project
+SalvaFood
 
-## Project info
+Ecossistema de Inteligência Artificial para Gestão de Resíduos Alimentares e Segurança Nutricional
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Visão Geral
 
-## How can I edit this code?
+O SalvaFood é uma plataforma digital que utiliza Inteligência Artificial em estágio inicial para reduzir o desperdício de alimentos no varejo, conectando excedentes alimentares a consumidores locais e a instituições sociais. A solução foi desenvolvida como um protótipo funcional, com foco em impacto social, ambiental e econômico, alinhado às diretrizes do edital GO.IA – Goiás Aberto para Inteligência Artificial.
 
-There are several ways of editing your application.
+Problema
 
-**Use Lovable**
+No Estado de Goiás, grandes volumes de alimentos próprios para consumo são descartados diariamente, enquanto parte da população enfrenta insegurança alimentar. Pequenos e médios comerciantes não dispõem de ferramentas tecnológicas para prever excedentes nem de mecanismos seguros e automatizados para a doação desses alimentos, o que resulta em perdas econômicas e impactos ambientais negativos.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Solução Proposta
 
-Changes made via Lovable will be committed automatically to this repo.
+O SalvaFood atua em três frentes integradas:
 
-**Use your preferred IDE**
+Prevenção do desperdício por meio da criação de sacolas surpresa com preços reduzidos.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Comercialização geolocalizada de excedentes alimentares para consumidores finais.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Destinação social automatizada de alimentos não vendidos, por meio do módulo Food Day.
 
-Follow these steps:
+Uso de Inteligência Artificial
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+A plataforma incorpora Inteligência Artificial em sua forma inicial, baseada em regras heurísticas e lógica de decisão automatizada. O sistema analisa dados operacionais como horário, tipo de alimento, validade e histórico básico de vendas para:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Sugerir a quantidade de sacolas surpresa.
 
-# Step 3: Install the necessary dependencies.
-npm i
+Definir automaticamente o encerramento do ciclo de venda.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Acionar o módulo Food Day para doação.
 
-**Edit a file directly in GitHub**
+Priorizar instituições sociais com base em critérios como proximidade geográfica, tipos de alimentos aceitos e horário de funcionamento.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+A evolução prevista da solução inclui a implementação de modelos de aprendizado de máquina para previsão de demanda e otimização contínua da tomada de decisão.
 
-**Use GitHub Codespaces**
+Módulo Food Day
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+O Food Day é uma funcionalidade de inovação social integrada ao sistema. Quando um alimento não é comercializado até o horário limite, o sistema altera automaticamente seu status para doação prioritária, seleciona uma instituição social cadastrada e registra a confirmação da doação. O processo garante rastreabilidade, segurança jurídica e impacto social contínuo.
 
-## What technologies are used for this project?
+Estágio de Maturidade Tecnológica
 
-This project is built with:
+O projeto encontra-se em estágio de maturidade tecnológica entre TRL 4 e TRL 5, contando com:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Protótipo funcional desenvolvido em ambiente low-code.
 
-## How can I deploy this project?
+Telas de cadastro, login, sacola surpresa e fluxo de doação.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Validação inicial em ambiente relevante.
 
-## Can I connect a custom domain to my Lovable project?
+Tecnologias Utilizadas
 
-Yes, you can!
+React
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+TypeScript
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Tailwind CSS
+
+Supabase
+
+Plataforma Lovable
+
+GitHub para versionamento
+
+Próximos Passos
+
+Implementação de modelos preditivos de Inteligência Artificial.
+
+Criação de painel administrativo e painel do comerciante.
+
+Ampliação do módulo Food Day.
+
+Escalonamento da solução para o Estado de Goiás.
+
+Evidências do Projeto
+
+Protótipo funcional sincronizado com o repositório.
+
+Prints das principais telas do sistema.
+
+Documentação técnica e anexo explicativo sobre o uso de Inteligência Artificial.
